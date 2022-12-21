@@ -1,5 +1,17 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import CASCADE
 
+
+class User(AbstractUser):
+    email = models.EmailField(max_length=300)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Users'
+
+    def __str__(self):
+        return self.username
 
 class Url(models.Model):
     short_name = models.CharField(max_length=255)
@@ -21,11 +33,3 @@ class Url(models.Model):
         while Url.objects.filter(short_name=short_name).exists():
             short_name = self.__token()
         return short_name
-
-
-'''
-
-3Vjcymf
-https://www.olx.uz/d/obyavlenie/avto-kredit-tracker-2-bir-kunda-ID2YTib.html
-
-'''

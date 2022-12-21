@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +11,16 @@
 
     <title>Cortaly - URL Shortner HTML Template</title>
 
-    <link rel="stylesheet" href="../apps/static/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/all.min.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/animate.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/nice-select.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/owl.min.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/flaticon.css">
-    <link rel="stylesheet" href="../apps/static/assets/css/main.css">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/owl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'apps/assets/css/main.css' %}">
 
-    <link rel="shortcut icon" href="../apps/static/assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'apps/assets/images/favicon.png' %}" type="image/x-icon">
     
   
 </head>
@@ -42,20 +43,21 @@
             <div class="account-title text-center">
                 <a href="index-2.html" class="back-home"><i class="fas fa-angle-left"></i><span>Back <span class="d-none d-sm-inline-block">To Cortaly</span></span></a>
                 <a href="index-2.html" class="logo">
-                    <img src="../apps/static/assets/images/logo/logo.png" alt="logo">
+                    <img src="{% static 'apps/assets/images/logo/logo.png' %}" alt="logo">
                 </a>
             </div>
             <div class="account-wrapper">
                 <div class="account-body">
                     <h4 class="title mb-20">Welcome To Cortaly</h4>
-                    <form class="account-form">
+                    <form class="account-form" action="{% url 'sign-in' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <label for="sign-up">Your Email </label>
-                            <input type="text" placeholder="Enter Your Email " id="sign-up">
+                            <label for="sign-up">Username</label>
+                            <input type="text" placeholder="Username" id="sign-up" name="username">
                         </div>
                         <div class="form-group">
                             <label for="pass">Password</label>
-                            <input type="text" placeholder="Enter Your Password" id="pass">
+                            <input type="password" placeholder="Enter Your Password" id="pass" name="password">
                             <span class="sign-in-recovery">Forgot your password? <a href="recover-password.html">recover password</a></span>
                         </div>
                         <div class="form-group text-center">
@@ -68,7 +70,7 @@
                 </div>
                 <div class="account-header pb-0">
                     <span class="d-block mb-30 mt-2">Sign up with your work email</span>
-                    <a href="#0" class="sign-in-with"><img src="../apps/static/assets/images/icon/google.png" alt="icon"><span>Sign Up with Google</span></a>
+                    <a href="#0" class="sign-in-with"><img src="{% static 'apps/assets/images/icon/google.png' %}" alt="icon"><span>Sign Up with Google</span></a>
                     <span class="d-block mt-15">Don't have an account? <a href="sign-up.html">Sign Up Here</a></span>
                 </div>
             </div>
@@ -77,21 +79,21 @@
     <!--============= Sign In Section Ends Here =============-->
 
 
-    <script src="../apps/static/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../apps/static/assets/js/modernizr-3.6.0.min.js"></script>
-    <script src="../apps/static/assets/js/plugins.js"></script>
-    <script src="../apps/static/assets/js/bootstrap.min.js"></script>
-    <script src="../apps/static/assets/js/wow.min.js"></script>
-    <script src="../apps/static/assets/js/waypoints.js"></script>
-    <script src="../apps/static/assets/js/nice-select.js"></script>
-    <script src="../apps/static/assets/js/counterup.min.js"></script>
-    <script src="../apps/static/assets/js/owl.min.js"></script>
-    <script src="../apps/static/assets/js/magnific-popup.min.js"></script>
-    <script src="../apps/static/assets/js/paroller.js"></script>
-    <script src="../apps/static/assets/js/main.js"></script>
+    <script src="{% static 'apps/assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'apps/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/waypoints.js' %}"></script>
+    <script src="{% static 'apps/assets/js/nice-select.js' %}"></script>
+    <script src="{% static 'apps/assets/js/counterup.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/owl.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'apps/assets/js/paroller.js' %}"></script>
+    <script src="{% static 'apps/assets/js/main.js' %}"></script>
 
 
-</body>
+</body>`
 
 
 <!-- Mirrored from pixner.net/cortaly/main/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 13:21:56 GMT -->

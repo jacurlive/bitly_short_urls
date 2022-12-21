@@ -40,35 +40,26 @@
     <div class="container">
         <div class="header-wrapper">
             <div class="logo">
-                <a href="index-2.html">
+                <a href="{% url 'main' %}">
                     <img src="{% static 'apps/assets/images/logo/logo.png' %}" alt="logo">
                 </a>
             </div>
-            <ul class="menu">
-                <li>
-                    <a href="index-2.html">Home</a>
-                </li>
-                <li class="d-sm-none text-center">
-                    <a href="sign-in.html" class="header-button active">Login</a>
-                </li>
-                <li class="d-sm-none text-center">
-                    <a href="sign-up.html" class="mb-4 header-button">Register</a>
-                </li>
-            </ul>
             <div class="header-bar d-lg-none mr-sm-3">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <div class="header-right">
-                <a href="sign-in.html" class="header-button d-none d-sm-inline-block m-0 active">Login</a>
-                <a href="sign-up.html" class="header-button d-none d-sm-inline-block m-0">Register</a>
+                {% if user.is_anonymous %}
+                    <a href="{% url 'sign-in' %}" class="header-button d-none d-sm-inline-block m-0">Login</a>
+                    <a href="{% url 'signup' %}" class="header-button d-none d-sm-inline-block m-0">Register</a>
+                {% else %}
+                    <a href="{% url 'logout' %}" class="header-button d-none d-sm-inline-block m-0">Log Out</a>
+                {% endif %}
             </div>
         </div>
     </div>
 </header>
-<!--============= Header Section Ends Here =============-->
-
 
 <!--============= Banner Section Starts Here =============-->
 <section class="banner-section">
@@ -91,22 +82,22 @@
         <div class="banner-form-group">
             <h3 class="subtitle">Shorten URL Is Just Simple</h3>
             <h3 class="subtitle" style="color: #4eff4e;"><a href="{{ short_name }}">127.0.0.1:8000/{{ short_name }}</a> </h3>
-            <form class="banner-form" action="{% url 'form_view' %}" method="post">
+            <form class="banner-form" action="{% url 'main' %}" method="post">
                 {% csrf_token %}
                 <input type="url" placeholder="Your URL here" name="long_name" required>
                 <button type="submit">Shorten <i class="flaticon-startup"></i></button>
             </form>
             <div class="banner-counter">
                 <div class="counter-item">
-                    <h2 class="counter-title"><span class="counter">1,200,000</span>+</h2>
+                    <h2 class="counter-title"><span class="counter">862</span>+</h2>
                     <p>Links clicked per day</p>
                 </div>
                 <div class="counter-item">
-                    <h2 class="counter-title"><span class="counter">348,000,000</span>+</h2>
+                    <h2 class="counter-title"><span class="counter">{{ link_count }}</span>+</h2>
                     <p>Shortened links in total</p>
                 </div>
                 <div class="counter-item">
-                    <h2 class="counter-title"><span class="counter">1,180,000</span>+</h2>
+                    <h2 class="counter-title"><span class="counter">{{ user_count }}</span>+</h2>
                     <p>Happy users registered</p>
                 </div>
             </div>
