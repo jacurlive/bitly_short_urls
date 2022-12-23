@@ -7,6 +7,7 @@ class User(AbstractUser):
     is_active = models.BooleanField(default=True)
 
     class Meta:
+        verbose_name_plural = 'User'
         verbose_name = 'Users'
 
     def __str__(self):
