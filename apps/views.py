@@ -1,11 +1,9 @@
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.sites.shortcuts import get_current_site
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import FormView, TemplateView
-
+from django.views.generic import FormView
 from apps.forms import UrlForm, CustomLoginForm, RegisterForm
 from apps.models import Url, User
 

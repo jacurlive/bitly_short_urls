@@ -81,7 +81,7 @@
 
         <div class="banner-form-group">
             <h3 class="subtitle">Shorten URL Is Just Simple</h3>
-            <h3 class="subtitle" style="color: #4eff4e;"><a href="{{ short_name }}">50.116.42.147:2044/{{ short_name }}</a> </h3>
+            <h3 class="subtitle" style="color: #4eff4e;"><a href="{{ short_name }}">127.0.0.1:8000/{{ short_name }}</a> </h3>
             <form class="banner-form" action="{% url 'main' %}" method="post">
                 {% csrf_token %}
                 <input type="url" placeholder="Your URL here" name="long_name" required>
